@@ -1,20 +1,11 @@
 import React, { useState, Component } from 'react';
 import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, Text } from 'react-native';
-import Orientation from 'react-native-orientation';       //May need to do "npm install react-native-orientation": from https://www.npmjs.com/package/react-native-orientation
 import Header from './components/header';
-import TodoItem from './components/todoItem';
-import AddTodo from './components/addTodo';
-
 export default function App() {
-  Orientation.lockToLandscape();
 
   const [todos, setTodos] = useState([
     { text: 'Go to team meeting', key: '1' },
-    { text: 'Attend CS 262', key: '2' },
-    { text: 'Push homework to GitHub', key: '3' },
   ]);
-
-
 
   const pressHandler = (key) => {
     setTodos((prevTodos) => {
@@ -22,32 +13,35 @@ export default function App() {
     })
   }
 
-  const submitHandler = (text) => {
-    setTodos((prevTodos) =>{
-      return [
-        { text: text, key: Math.random().toString()},
-        ...prevTodos
-      ]
-    })
-  }
-
   return (
+
     <TouchableWithoutFeedback>
       <View style={styles.container}>
-        <Header />
-        <View style={styles.content}>
-          <AddTodo submitHandler={submitHandler}/>
-          <View style={styles.list}>
-            <FlatList 
-              data={todos}
-              renderItem={({ item }) => (
-                <TodoItem item={item} pressHandler={pressHandler}/>
-              )}
-              />
-          </View>
-        </View>
+
       </View>
     </TouchableWithoutFeedback>
+
+
+
+
+
+
+    // <TouchableWithoutFeedback>
+    //   <View style={styles.container}>
+    //     <Header />
+    //     <View style={styles.content}>
+          
+    //       <View style={styles.list}>
+    //         <FlatList 
+    //           data={todos}
+    //           renderItem={({ item }) => (
+    //             <TodoItem item={item} pressHandler={pressHandler}/>
+    //           )}
+    //           />
+    //       </View>
+    //     </View>
+    //   </View>
+    // </TouchableWithoutFeedback>
   );
 }
 
