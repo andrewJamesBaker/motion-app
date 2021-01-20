@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import React, { useState, Component } from 'react';
+import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, Text } from 'react-native';
+import Orientation from 'react-native-orientation';       //May need to do "npm install react-native-orientation": from https://www.npmjs.com/package/react-native-orientation
 import Header from './components/header';
 import TodoItem from './components/todoItem';
 import AddTodo from './components/addTodo';
 
 export default function App() {
+  Orientation.lockToLandscape();
+
   const [todos, setTodos] = useState([
     { text: 'Go to team meeting', key: '1' },
     { text: 'Attend CS 262', key: '2' },
     { text: 'Push homework to GitHub', key: '3' },
   ]);
+
+
 
   const pressHandler = (key) => {
     setTodos((prevTodos) => {
