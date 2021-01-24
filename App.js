@@ -1,6 +1,7 @@
 import React, { useState, Component } from 'react';
-import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, Text } from 'react-native';
+import { StatusBar, StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, Text } from 'react-native';
 import Header from './components/header';
+import Card from './components/card';
 export default function App() {
 
   const [todos, setTodos] = useState([
@@ -15,12 +16,14 @@ export default function App() {
 
   return (
 
+    
     <TouchableWithoutFeedback>
       <View style={styles.container}>
-
+        <Card><Text>Hello</Text></Card>
+        <StatusBar hidden = {true}/>
       </View>
     </TouchableWithoutFeedback>
-
+    
 
 
 
