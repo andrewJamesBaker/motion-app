@@ -2,17 +2,12 @@ import React, { useState, Component } from 'react';
 import { StatusBar, StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, Text } from 'react-native';
 import Header from './components/header';
 import Card from './components/card';
+import { accelerometer, gyroscope} from "react-native-sensors";
 export default function App() {
 
   const [todos, setTodos] = useState([
     { text: 'Go to team meeting', key: '1' },
   ]);
-
-  const pressHandler = (key) => {
-    setTodos((prevTodos) => {
-      return prevTodos.filter(todo => todo.key != key);
-    })
-  }
 
   return (
 
@@ -24,27 +19,6 @@ export default function App() {
       </View>
     </TouchableWithoutFeedback>
     
-
-
-
-
-
-    // <TouchableWithoutFeedback>
-    //   <View style={styles.container}>
-    //     <Header />
-    //     <View style={styles.content}>
-          
-    //       <View style={styles.list}>
-    //         <FlatList 
-    //           data={todos}
-    //           renderItem={({ item }) => (
-    //             <TodoItem item={item} pressHandler={pressHandler}/>
-    //           )}
-    //           />
-    //       </View>
-    //     </View>
-    //   </View>
-    // </TouchableWithoutFeedback>
   );
 }
 
